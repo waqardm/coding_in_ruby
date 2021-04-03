@@ -1,0 +1,24 @@
+example_id                      | status | run_time        |
+------------------------------- | ------ | --------------- |
+./spec/board_spec.rb[1:1:1]     | passed | 0.00196 seconds |
+./spec/board_spec.rb[1:1:2]     | failed | 0.00021 seconds |
+./spec/board_spec.rb[1:1:3]     | failed | 0.00014 seconds |
+./spec/board_spec.rb[2:1]       | passed | 0.0006 seconds  |
+./spec/board_spec.rb[3:1]       | passed | 0.00009 seconds |
+./spec/board_spec.rb[4:1]       | passed | 0.00011 seconds |
+./spec/board_spec.rb[6:1]       | failed | 0.00008 seconds |
+./spec/board_spec.rb[6:2]       | failed | 0.00007 seconds |
+./spec/board_spec.rb[6:3]       | failed | 0.00012 seconds |
+./spec/board_spec.rb[6:4]       | failed | 0.00011 seconds |
+./spec/board_spec.rb[6:5]       | failed | 0.00007 seconds |
+./spec/board_spec.rb[6:6]       | failed | 0.00006 seconds |
+./spec/board_spec.rb[6:7]       | failed | 0.00008 seconds |
+./spec/board_spec.rb[6:8]       | failed | 0.0001 seconds  |
+./spec/cell_spec.rb[1:1:1]      | passed | 0.00078 seconds |
+./spec/cell_spec.rb[1:1:2]      | passed | 0.00015 seconds |
+./spec/player_spec.rb[1:1:1]    | passed | 0.00339 seconds |
+./spec/player_spec.rb[1:1:2]    | passed | 0.0003 seconds  |
+./spec/player_spec.rb[1:1:3:1]  | passed | 0.00096 seconds |
+./spec/player_spec.rb[1:1:4:1]  | passed | 0.00011 seconds |
+./spec/tic_tac_toe_spec.rb[1:1] | passed | 0.00067 seconds |
+./spec/tic_tac_toe_spec.rb[1:2] | failed | 0.01923 seconds |
