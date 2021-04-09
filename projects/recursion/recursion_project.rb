@@ -11,7 +11,7 @@ def fibs(num)
   array
 end
 
-# Now write another method #fibs_rec which solves the same problem recursively. This can be done in just 3 lines (or 1 if you’re crazy, but don’t consider either of these lengths a requirement… just get it done).
+# Now write another method #fibs_rec which solves the same problem recursively. This can be done in just 3 lines
 
 def fibs_rec(num)
   # base cases 0 and 1
