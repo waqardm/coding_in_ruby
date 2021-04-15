@@ -1,27 +1,14 @@
-# // Split the array into halves and merge them recursively
-def mergeSort(array) {
-  return merge(mergeSort(left), mergeSort(right))
+def merge_sort(array)
+  return array if array.length < 2
+
+  middle = array.length / 2
+  left = merge_sort(array[0...middle])
+  right = merge_sort(array[middle..array.length])
+
+  sorted = []
+  left.first <= right.first ? sorted << left.shift : sorted << right.shift
+
+  sorted + left + right
 end
 
-# // Compare the arrays item by item and return the concatenated result
-def merge (left, right)
-  result = []
-  indexLeft = 0
-  indexRight = 0
-
-  while indexLeft < left.length && indexRight < right.length do
-    if left[indexLeft] < right[indexRight]
-      result << left[indexLeft]
-      indexLeft + 1
-    else
-      result << right[indexRight]
-      indexRight + 1
-    end
-  end
-
-  return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight))
-end
-
-
-arrayOfNumbers = [2, 5, 1, 3, 7, 4, 2, 3, 9, 8, 6, 3]
-mergeSort(arrayOfNumbers)
+p merge_sort([10, 7])
