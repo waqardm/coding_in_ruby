@@ -16,12 +16,14 @@ class LinkedList
   def append(value)
     new_node = Node.new(value)
     @head ||= new_node
-    !@tail ? @tail = new_node : @tail.next_node = new_node
+    @tail = new_node if @tail.nil?
+    @tail = @tail.next_node = new_node
     @counter += 1
   end
 
   def prepend(value)
     new_node = Node.new(value)
+    new_node.next_node = @head
     @head = new_node
     @tail ||= new_node
     @counter += 1
@@ -30,40 +32,51 @@ class LinkedList
   def size
     @counter
   end
-  # at(index) returns the node at the given index
 
   def at(index)
+    current_node = @head
+    index.times do
+      current_node = current_node.next_node
+    end
+    current_node
   end
-  # pop removes the last element from the list
 
   def pop
-    tail - 1
+    puts 'The list is empty!' if size.nil?
+    current_node = @head
+    current_node = current_node.next_node until current_node.next_node == @tail
+    current_node.next_node = 'nil'
+    @tail = current_node
+    @counter -= 1
   end
-  # contains?(value) returns true if the passed in value is in the list and otherwise returns false.
 
   def contains?(value)
     ObjectSpace.each_object(Node) do |obj|
-      true if value == obj
+      p true if value == obj.value
     end
   end
-  # find(value) returns the index of the node containing value, or nil if not found.
 
   def find(value)
-    ObjectSpace.each_object(Node) do |obj|
-      if value == obj
-        index = value[index]
-      end
+    current_node = @head
+    counter = 0
+    found = false
+    until current_node.nil?
+      found = true if current_node.value == value
+      current_node = current_node.next_node
+      counter += 1 unless found
     end
+    counter if found
   end
-  # to_s represent your LinkedList objects as strings, so you can print them out and preview them in the console. The format should be: ( value ) -> ( value ) -> ( value ) -> nil
 
   def to_s
-    ObjectSpace.each_object(Node) do |obj|
-      puts "#{value}, "
+    current_node = @head
+    until current_node.nil?
+      print "(#{current_node.value}) -> "
+      current_node = current_node.next_node
     end
+    print nil
   end
 end
-
 
 list = LinkedList.new
 list.append(3)
@@ -72,4 +85,8 @@ list.prepend(99)
 pp list
 puts "The list head is #{list.head.value}"
 puts "The list tail is #{list.tail.value}"
-p list.at(1)
+list.at(0)
+list.pop
+list.contains?(99)
+p list.find(99)
+p list.to_s
